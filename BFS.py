@@ -1,5 +1,4 @@
 import time
-
 from collections import deque
 
 maze = [
@@ -17,16 +16,15 @@ maze = [
 
 def bfs(maze, start, goal):
     rows, cols = len(maze), len(maze[0])
-    m = [row[:] for row in maze]  # copy to avoid modifying original
+    m = [row[:] for row in maze]
     parent = {}
     q = deque([start])
-    m[start[0]][start[1]] = 1  # mark visited
+    m[start[0]][start[1]] = 1
     moves = [(0,1),(0,-1),(1,0),(-1,0)]
 
     while q:
         x, y = q.popleft()
         if (x, y) == goal:
-            # reconstruct path
             path = []
             while (x, y) != start:
                 path.append((x, y))
@@ -40,7 +38,7 @@ def bfs(maze, start, goal):
                 q.append((nx, ny))
     return None
 
-# test runs
+# Test cases
 test_data = [
     (0,0, 9,9),
     (1,0, 9,9),
@@ -54,12 +52,13 @@ test_data = [
     (4,7, 9,1)
 ]
 
+# Run BFS for each test case
 for i, (sx, sy, gx, gy) in enumerate(test_data, 1):
-    path = bfs(maze, (sx, sy), (gx, gy))
     start_time = time.time()
     path = bfs(maze, (sx, sy), (gx, gy))
     end_time = time.time()
     duration = (end_time - start_time) * 1000
+
     print("\n=" + "="*150)
     print(f"\nTest {i}")
     print(f"Start: ({sx},{sy})")
@@ -69,4 +68,4 @@ for i, (sx, sy, gx, gy) in enumerate(test_data, 1):
         print("Path:", " -> ".join(f"({x},{y})" for x, y in path))
     else:
         print("No path found")
-    print("Time taken: {duration:.2f} ms")
+    print(f"Time taken: {duration:.3f} ms")
