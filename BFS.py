@@ -61,11 +61,11 @@ for i, (sx, sy, gx, gy) in enumerate(test_data, 1):
 
     print("\n=" + "="*150)
     print(f"\nTest {i}")
-    print(f"Start: ({sx},{sy})")
-    print(f"Goal: ({gx},{gy})")
+    print(f"Start       : ({sx},{sy})")
+    print(f"Goal        : ({gx},{gy})")
     if path:
-        print(f"Path length: {len(path)-1} steps")
-        print("Path:", " -> ".join(f"({x},{y})" for x, y in path))
+        print(f"Path length : {len(path)-1} steps")
+        print("Path        :", " -> ".join(f"({x},{y})" for x, y in path))
     else:
         print("No path found")
-    print(f"Time taken: {duration:.3f} ms")
+    print(f"Time taken  :  {duration:.3f} ms")
