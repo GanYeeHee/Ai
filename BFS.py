@@ -59,7 +59,7 @@ for i, (sx, sy, gx, gy) in enumerate(test_data, 1):
     end_time = time.time()
     duration = (end_time - start_time) * 1000
 
-    print("\n=" + "="*150)
+    print("\n=" + "="*180)
     print(f"\nTest {i}")
     print(f"Start       : ({sx},{sy})")
     print(f"Goal        : ({gx},{gy})")
